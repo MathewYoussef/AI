@@ -14,6 +14,18 @@ This guide explains how to execute the five-fold Track H denoiser experiment, 
    ```bash
    pip install --no-binary=mamba-ssm -r requirements.txt
    ```
+   ```bash
+   sudo apt-get update
+   sudo apt-get install -y build-essential ninja cmake
+   pip install --no-cache-dir --no-build-isolation \
+     "mamba-ssm[causal-conv1d] @ git+https://github.com/state-spaces/mamba.git@v2.2.5"
+   python - <<'PY'
+   import torch, numpy, mamba_ssm
+   print("torch", torch.__version__)
+   print("numpy", numpy.__version__)
+   print("mamba-ssm OK")
+   PY
+   ```
    This pins torch==2.3.0, torchvision==0.18.0, numpy==1.26.4, and mamba-ssm[causal-conv1d]==2.2.5 so the build matches the released experiment.
 4. Ensure `data/spectra_for_fold` is present (treatments 1–6) and `lambda_stats.npz` lives in that directory.
 
