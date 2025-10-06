@@ -68,6 +68,12 @@ def parse_args() -> argparse.Namespace:
         ],
     )
     parser.add_argument("--batch-size", type=int, default=600)
+    parser.add_argument(
+        "--grad-accum",
+        type=int,
+        default=1,
+        help="Micro-batch accumulation steps for training",
+    )
     parser.add_argument("--epochs", type=int, default=200)
     parser.add_argument("--patience", type=int, default=21)
     parser.add_argument("--lr", type=float, default=3e-4)
@@ -239,6 +245,8 @@ def main() -> None:
             ]
             if args.device:
                 train_cmd.extend(["--device", args.device])
+            if args.grad_accum and args.grad_accum != 1:
+                train_cmd.extend(["--grad_accum", str(args.grad_accum)])
             train_cmd.extend(["--audit_log", str(audit_log)])
             try:
                 run_command(train_cmd, train_log)
