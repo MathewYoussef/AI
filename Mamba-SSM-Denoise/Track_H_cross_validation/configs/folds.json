@@ -1,0 +1,119 @@
+{
+  "folds": {
+    "1": {
+      "train": {
+        "treatment_1": ["sample_A", "sample_B", "sample_C"],
+        "treatment_2": ["sample_A", "sample_C", "sample_D"],
+        "treatment_3": ["sample_B", "sample_F", "sample_G"],
+        "treatment_4": ["sample_C", "sample_D", "sample_E"],
+        "treatment_5": ["sample_A", "sample_C", "sample_G"]
+      },
+      "val": {
+        "treatment_1": "sample_E",
+        "treatment_2": "sample_F",
+        "treatment_3": "sample_I",
+        "treatment_4": "sample_I",
+        "treatment_5": "sample_H"
+      },
+      "test": {
+        "treatment_1": "sample_H",
+        "treatment_2": "sample_H",
+        "treatment_3": "sample_J",
+        "treatment_4": "sample_J",
+        "treatment_5": "sample_J"
+      }
+    },
+    "2": {
+      "train": {
+        "treatment_1": ["sample_B", "sample_C", "sample_E"],
+        "treatment_2": ["sample_C", "sample_D", "sample_F"],
+        "treatment_3": ["sample_F", "sample_G", "sample_I"],
+        "treatment_4": ["sample_D", "sample_E", "sample_I"],
+        "treatment_5": ["sample_C", "sample_G", "sample_H"]
+      },
+      "val": {
+        "treatment_1": "sample_H",
+        "treatment_2": "sample_H",
+        "treatment_3": "sample_J",
+        "treatment_4": "sample_J",
+        "treatment_5": "sample_J"
+      },
+      "test": {
+        "treatment_1": "sample_A",
+        "treatment_2": "sample_A",
+        "treatment_3": "sample_B",
+        "treatment_4": "sample_C",
+        "treatment_5": "sample_A"
+      }
+    },
+    "3": {
+      "train": {
+        "treatment_1": ["sample_C", "sample_E", "sample_H"],
+        "treatment_2": ["sample_D", "sample_F", "sample_H"],
+        "treatment_3": ["sample_G", "sample_I", "sample_J"],
+        "treatment_4": ["sample_E", "sample_I", "sample_J"],
+        "treatment_5": ["sample_G", "sample_H", "sample_J"]
+      },
+      "val": {
+        "treatment_1": "sample_A",
+        "treatment_2": "sample_A",
+        "treatment_3": "sample_B",
+        "treatment_4": "sample_C",
+        "treatment_5": "sample_A"
+      },
+      "test": {
+        "treatment_1": "sample_B",
+        "treatment_2": "sample_C",
+        "treatment_3": "sample_F",
+        "treatment_4": "sample_D",
+        "treatment_5": "sample_C"
+      }
+    },
+    "4": {
+      "train": {
+        "treatment_1": ["sample_E", "sample_H", "sample_A"],
+        "treatment_2": ["sample_F", "sample_H", "sample_A"],
+        "treatment_3": ["sample_I", "sample_J", "sample_B"],
+        "treatment_4": ["sample_I", "sample_J", "sample_C"],
+        "treatment_5": ["sample_H", "sample_J", "sample_A"]
+      },
+      "val": {
+        "treatment_1": "sample_B",
+        "treatment_2": "sample_C",
+        "treatment_3": "sample_F",
+        "treatment_4": "sample_D",
+        "treatment_5": "sample_C"
+      },
+      "test": {
+        "treatment_1": "sample_C",
+        "treatment_2": "sample_D",
+        "treatment_3": "sample_G",
+        "treatment_4": "sample_E",
+        "treatment_5": "sample_G"
+      }
+    },
+    "5": {
+      "train": {
+        "treatment_1": ["sample_H", "sample_A", "sample_B"],
+        "treatment_2": ["sample_H", "sample_A", "sample_C"],
+        "treatment_3": ["sample_J", "sample_B", "sample_F"],
+        "treatment_4": ["sample_J", "sample_C", "sample_D"],
+        "treatment_5": ["sample_J", "sample_A", "sample_C"]
+      },
+      "val": {
+        "treatment_1": "sample_C",
+        "treatment_2": "sample_D",
+        "treatment_3": "sample_G",
+        "treatment_4": "sample_E",
+        "treatment_5": "sample_G"
+      },
+      "test": {
+        "treatment_1": "sample_E",
+        "treatment_2": "sample_F",
+        "treatment_3": "sample_I",
+        "treatment_4": "sample_I",
+        "treatment_5": "sample_H"
+      }
+    }
+  }
+}
