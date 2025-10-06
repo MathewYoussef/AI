@@ -12,8 +12,9 @@ This guide explains how to execute the five-fold Track H denoiser experiment, 
    See https://pytorch.org/get-started/locally/ for other platforms.
 3. Install the project dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install --no-binary=mamba-ssm -r requirements.txt
    ```
+   This pins torch==2.3.0, torchvision==0.18.0, numpy==1.26.4, and mamba-ssm[causal-conv1d]==2.2.5 so the build matches the released experiment.
 4. Ensure `data/spectra_for_fold` is present (treatments 1–6) and `lambda_stats.npz` lives in that directory.
 
 ### Hardware Notes
