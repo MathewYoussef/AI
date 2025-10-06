@@ -3,6 +3,25 @@
 This guide explains how to execute the five-fold Track H denoiser experiment, where to find the outputs, and how to recover from interruptions.
 
 ---
+## Environment Setup
+1. Create a Python 3.10 environment (e.g. `conda create -n spectra python=3.10` then `conda activate spectra`).
+2. Install PyTorch with CUDA support that matches your driver. For example, on Linux with CUDA 12.1:
+   ```bash
+   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+   ```
+   See https://pytorch.org/get-started/locally/ for other platforms.
+3. Install the project dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Ensure `data/spectra_for_fold` is present (treatments 1–6) and `lambda_stats.npz` lives in that directory.
+
+### Hardware Notes
+- The automated cross-validation run is sized for a 40 GB GPU (A100 class).
+- With smaller cards (≥24 GB) you can lower `--batch-size` via `scripts/run_cross_validation.py --batch-size ...`.
+- Expect the full 5-fold pass to occupy ~2 TB disk for denoised outputs and checkpoints; keep the `Mamba-SSM-Denoise` repo on a fast SSD.
+
+---
 ## 1. Overview
 - We train five folds sequentially; each fold uses 3 samples/treatment for training, 1 for validation, 1 for test.
 - All steps (manifest generation → training → denoising → logging) are automated, with mandatory audit logs written to `logs/Track_H_fold_##/auditing_manifest.log`.

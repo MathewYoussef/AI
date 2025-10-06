@@ -1,0 +1,5 @@
+# Core Python dependencies for Track_H cross-validation
+numpy>=1.23
+pandas>=1.5
+scipy>=1.10
+mamba-ssm>=1.1
