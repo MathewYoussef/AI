@@ -72,6 +72,21 @@ Run the orchestrator to process folds **1 → 5** sequentially:
 ```bash
 python3 scripts/run_cross_validation.py
 ```
+For a production A100 run that balances memory and throughput:
+```bash
+python3 scripts/run_cross_validation.py \
+  --device cuda:0 \
+  --epochs 200 \
+  --patience 21 \
+  --batch-size 410 \
+  --grad-accum 2 \
+  --log-root logs/prod \
+  --checkpoint-root checkpoints/prod \
+  --denoised-root denoised/prod \
+  --summary-csv artifacts/cross_validation/fold_summary_prod.csv \
+  --infer-batch-size 16 \
+  --infer-num-workers 0
+```
 Key command-line options:
 - `--device cuda:0` (or similar) to pin the GPU
 - `--skip-existing` to skip any fold whose checkpoint already exists
