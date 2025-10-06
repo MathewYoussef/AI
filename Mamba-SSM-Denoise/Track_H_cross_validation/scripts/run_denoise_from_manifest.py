@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -44,11 +45,15 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--dose-features-csv",
+        "--dose_features_csv",
+        dest="dose_features_csv",
         default=None,
         help="CSV with per-spectrum dose features",
     )
     parser.add_argument(
         "--dose-stats-json",
+        "--dose_stats_json",
+        dest="dose_stats_json",
         default=None,
         help="JSON file with conditioning mean/std",
     )
@@ -142,7 +147,16 @@ def build_model_from_checkpoint(
         model_kwargs["cond_dim"] = cond_dim
 
     model = build_model(config.get("model", "mamba_tiny_uv"), **model_kwargs)
-    state = checkpoint.get("ema_state") or checkpoint["model_state"]
+    state = checkpoint.get("ema_state") or checkpoint.get("model_state")
+    if state is None:
+        raise KeyError(
+            f"Checkpoint {args.checkpoint} missing both 'ema_state' and 'model_state' entries"
+        )
+    state = {
+        key.replace("module.", ""): value
+        for key, value in state.items()
+        if key != "n_averaged"
+    }
     model.load_state_dict(state, strict=True)
     model.to(device)
     model.eval()
@@ -188,7 +202,7 @@ def main() -> None:
             cond_tensor = cond.to(device) if cond_dim > 0 else None
             with torch.cuda.amp.autocast(enabled=autocast_enabled, dtype=amp_dtype):
                 prediction = model(noisy, cond=cond_tensor) if cond_dim > 0 else model(noisy)
-            prediction = prediction.squeeze(1).cpu().numpy().astype(np.float32)
+            prediction = prediction.squeeze(1).to(torch.float32).cpu().numpy()
 
             for i, rel_path in enumerate(dataset.relative_paths[idx_offset: idx_offset + prediction.shape[0]]):
                 out_path = output_root / Path(rel_path).with_name(Path(rel_path).stem + "_denoised.npy")
