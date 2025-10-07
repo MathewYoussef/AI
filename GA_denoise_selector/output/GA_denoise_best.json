@@ -1,0 +1,41 @@
+{
+  "genome": [
+    0.0,
+    0.7120634214091708,
+    0.37345794513270525,
+    0.44812869946515954,
+    0.12654445871340814,
+    0.6138459450077243
+  ],
+  "metrics": {
+    "robust_snr": 50.522392421631515,
+    "high_freq_energy": 0.0018733164276465303,
+    "residual_rms": 0.0007261386848599249,
+    "curvature_penalty": 0.0020036236075310788,
+    "change_fraction": 0.0022163116355218295,
+    "complexity": 7.0
+  },
+  "chosen_smoother": {
+    "id": 0,
+    "name": "savitzky_golay"
+  },
+  "parameters": {
+    "order": 4,
+    "window": 7
+  },
+  "families": [
+    "sym4",
+    "sym6",
+    "sym8",
+    "coif3",
+    "db4",
+    "db5"
+  ],
+  "ga_parameters": {
+    "num_generations": 240,
+    "sol_per_pop": 32,
+    "num_parents_mating": 16,
+    "keep_parents": 6,
+    "random_seed": 42
+  }
+}

@@ -1,0 +1,29 @@
+# GA_denoise_selector configuration
+
+# Path to normalized reflectance spectra (relative to this directory or absolute)
+normalized_root: ../Raw_Normalize/detection_pipeline/outputs/raw_normalized
+
+# Output directory for GA artefacts (relative paths resolved under GA_denoise_selector)
+output_dir: output
+
+# Wavelength window in nanometres
+wavelength_min: 300.0
+wavelength_max: 600.0
+
+# Optional filters; leave empty to include everything discovered under normalized_root
+treatments: []
+angles:
+  - 12Oclock
+  - 6Oclock
+
+# Wavelet families to consider (falls back to smoothers.AVAILABLE_FAMILIES if empty)
+families: []
+
+# GA hyperparameters (values shown are defaults)
+ga:
+  num_generations: 260
+  sol_per_pop: 32
+  num_parents_mating: 16
+  keep_parents: 6
+  random_seed: 42
+  exclude_smoothers: []

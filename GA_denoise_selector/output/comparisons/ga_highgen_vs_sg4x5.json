@@ -1,0 +1,35 @@
+{
+  "baseline_label": "sg4x5",
+  "candidate_label": "ga_highgen",
+  "normalized_root": "/Users/mathewyoussef/Desktop/extremophile_detection/Data/Raw_Normalize/detection_pipeline/outputs/raw_normalized",
+  "wavelength_min": 300.0,
+  "wavelength_max": 600.0,
+  "num_spectra": 60,
+  "metrics": {
+    "baseline": {
+      "robust_snr_db": 60.0,
+      "high_freq_energy": 0.002023989003031886,
+      "residual_rms": 1.3849589043271427e-16,
+      "curvature_penalty": 0.0030349775996204396,
+      "change_fraction": 5.9368042919164835e-16
+    },
+    "candidate": {
+      "robust_snr_db": 50.52239242163139,
+      "high_freq_energy": 0.0018733164276465307,
+      "residual_rms": 0.0007261386848599249,
+      "curvature_penalty": 0.0020036236075310788,
+      "change_fraction": 0.0022163116355218486
+    },
+    "delta": {
+      "robust_snr_db": -9.477607578368612,
+      "high_freq_energy": -0.00015067257538535516,
+      "residual_rms": 0.0007261386848597865,
+      "curvature_penalty": -0.0010313539920893608,
+      "change_fraction": 0.002216311635521255
+    }
+  },
+  "input_files": {
+    "baseline": "/Users/mathewyoussef/Desktop/extremophile_detection/Data/GA_denoise_selector/output/smoothed_sg_order4_window5.csv",
+    "candidate": "/Users/mathewyoussef/Desktop/extremophile_detection/Data/GA_denoise_selector/output/smoothed_OPT.csv"
+  }
+}
